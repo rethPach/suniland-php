@@ -1,0 +1,29 @@
+Suniland\ComunBundle\Entity\Banner:
+    type: entity
+    table: banner
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titulo:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        imagen:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        activa:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }

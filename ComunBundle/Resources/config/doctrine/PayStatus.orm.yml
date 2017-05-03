@@ -1,0 +1,17 @@
+Suniland\ComunBundle\Entity\PayStatus:
+    type: entity
+    table: pay_status
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }

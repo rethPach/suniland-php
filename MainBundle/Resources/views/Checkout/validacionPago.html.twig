@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <div id="main">
+        <div class="pago">
+            <h1 class="txt-blue">Validar Compra de Tickets</h1>
+            <strong class="txt-red">Apellido y Nombre:</strong> {{ pago.usuarioFullName }}<br><br>
+            <strong class="txt-red">Parque:</strong> {{ pago.sucursalNombre }}<br><br>
+            <strong class="txt-red">Nombre del Boleto:</strong> {{ pago.boletoNombre }}<br><br>
+            <strong class="txt-red">Precio del Boleto:</strong> {{ pago.boletoPrecio }}<br><br>
+            <strong class="txt-red">Fecha:</strong> {{ "now"|date("d/m/Y") }}<br><br>
+            <strong class="txt-red">Cantidad:</strong> {{ pago.cantidadBoletosComprados }}<br><br>
+            <strong class="txt-red">Monto a Pagar:</strong> <span class="bigger">Bs. {{ pago.monto }}</span><br><br>
+
+            <strong class="txt-red">Medio de Pago:</strong>{{ pago.medioPago }}<br>
+            <p>
+                Para pagar con tarjeta de crédito, en el siguiente recuadro debe pulsar donde dice "123 Paga aquí" para
+                finalizar su compra.
+                El pago se realizará de manera encriptada en una plataforma segura, en los servidores de 123pago.net.
+                Una vez realizado el pago
+                procederemos a enviar un correo electronico con los datos de su compra.
+            </p>
+
+            <div style="overflow: hidden; background: #E80C7A; padding: 10px">
+                <div style="">
+                    {% autoescape %}{{ boton123Pago|raw }}{% endautoescape %}
+                    <div class="clearfix"></div>
+                </div>
+                <div style="float: right">
+                    <a
+                        type="button"
+                        name="button"
+                        id="buttonVolver"
+                        class="field2"
+                        href="{{ path('_main') }}">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

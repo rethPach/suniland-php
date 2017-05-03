@@ -1,0 +1,62 @@
+Suniland\ComunBundle\Entity\Pay:
+    type: entity
+    table: pays
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        lote:
+            type: text
+            nullable: true
+        cantidadBoletosComprados:
+            type: integer
+            nullable: true
+        codigoValidacion:
+            type: text
+            nullable: true
+        medioPago:
+            type: text
+            nullable: true
+        concepto:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        amount:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+        createdAt:
+           type: datetime
+           nullable: false
+        completeAt:
+           type: datetime
+           nullable: true
+        completeAtFull:
+           type: datetime
+           nullable: true
+    oneToOne:
+        usuario:
+            targetEntity: Usuario
+            joinColumn:
+                name: usuario_id
+                referencedByName: id
+        boletoInventario:
+            targetEntity: BoletoInventario
+            joinColumn:
+                name: boleto_inventario_id
+                referencedColumnName: id
+        status:
+            targetEntity: PayStatus
+            joinColumn:
+                name: status_id
+                referencedColumnName: id
+    lifecycleCallbacks: {}

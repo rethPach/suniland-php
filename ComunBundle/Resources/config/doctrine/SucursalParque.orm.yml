@@ -1,0 +1,68 @@
+Suniland\ComunBundle\Entity\SucursalParque:
+    type: entity
+    table: sucursal_parque
+    indexes:
+        IDX_57FA63A2C3103566:
+            columns:
+                - id_parque
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        direccion:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        telefono:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        telefonoAlternativo:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: telefono_alternativo
+        activo:
+            type: boolean
+            nullable: true
+        nombre_carpeta:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false            
+    manyToOne:
+        idParque:
+            targetEntity: Parque
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_parque:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToOne:
+        boletoInventario:
+            targetEntity: BoletoInventario
+            mappedBy: sucursal
+            cascade: [persist]
+    lifecycleCallbacks: {}

@@ -1,0 +1,20 @@
+Suniland\ComunBundle\Entity\EstatusPago:
+    type: entity
+    table: estatus_pago
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

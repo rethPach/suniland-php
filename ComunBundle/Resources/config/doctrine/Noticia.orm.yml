@@ -1,0 +1,34 @@
+Suniland\ComunBundle\Entity\Noticia:
+    type: entity
+    table: noticia
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        tipo:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        titulo:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        contenido:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        activo:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }

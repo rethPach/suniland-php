@@ -1,0 +1,35 @@
+Suniland\ComunBundle\Entity\Municipio:
+    type: entity
+    table: municipio
+    indexes:
+        IDX_FE98F5E09F5A440B:
+            columns:
+                - estado_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    manyToOne:
+        estado:
+            targetEntity: Estado
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                estado_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

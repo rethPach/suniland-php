@@ -1,0 +1,65 @@
+Suniland\ComunBundle\Entity\Parque:
+    type: entity
+    table: parque
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titulo:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        descripcion:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        imagen:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        activa:
+            type: boolean
+            nullable: true
+        facebook:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        twitter:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        instagram:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        email:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        telefono:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+	<input type="hidden" id="url_status" name="url_status" value="{{ path('_ajaxEstatusPago') }}">
+	<input type="hidden" id="id_pago" name="id_pago" value="{{ pago.id }}">
+	<input type="hidden" id="prod" name="prod" value="{{ prod }}">
+	<input type="hidden" id="url_pago" name="url_pago" value="{{ path('_ajaxPago') }}">
+	<input type="hidden" id="url" name="url" value="{{ path('_registrarCompra') }}">
+	<input type="hidden" id="url_eliminar_pago" name="url_eliminar_pago" value="{{ path('_ajaxEliminarPago') }}">
+	<div id="main">
+		<div class="pago">
+			<h1 class="txt-blue">Validar Compra de Tickets</h1>
+			<strong class="txt-red">Apellido y Nombre:</strong> {{ pago.idUsuario.apellido }} {{ pago.idUsuario.nombre }}<br><br>
+			<strong class="txt-red">Parque:</strong> {{ pago.idTipoEntrada.idSucursalParque.nombre }}<br><br>
+			<strong class="txt-red">Fecha:</strong> {{ "now"|date("d/m/Y") }}<br><br>
+			<strong class="txt-red">Cantidad:</strong> {{ pago.cantidad }}<br><br>
+			<strong class="txt-red">Monto a Pagar:</strong> <span class="bigger">Bs. {{ pago.monto|number_format(2, ',', '.') }}</span><br><br>
+
+			<strong class="txt-red" {% if html != '' %}style="display:none;"{% endif %}>Pago con Tarjeta de Crédito:</strong><br>
+			<p {% if html != '' %}style="display:none;"{% endif %}>
+				Para pagar con tarjeta de crédito, en el siguiente recuadro debe pulsar donde dice "123 Paga aquí" para finalizar su compra. 
+				El pago se realizará de manera encriptada en una plataforma segura, en los servidores de 123pago.net. Una vez realizado el pago 
+				procederemos a enviar un correo electronico con los datos de su compra.
+			</p>
+		
+		<p id="tdc-pay">
+			{% if html != '' %}
+				{{ html|raw }}
+			{% else %}
+				<input type="button" name="button" id="buttonPagar" value="Pagar" class="field2"> 
+				<input type="button" name="button" id="buttonVolver" value="Volver" class="field2">
+			{% endif %}
+		</p></div>
+	</div>
+
+{% endblock %}

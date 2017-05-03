@@ -1,0 +1,37 @@
+Suniland\ComunBundle\Entity\Tarifa:
+    type: entity
+    table: tarifa
+    indexes:
+        IDX_A01B5DEF971F6A6:
+            columns:
+                - id_tipo_entrada
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        monto:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+        activo:
+            type: boolean
+            nullable: true
+    manyToOne:
+        idTipoEntrada:
+            targetEntity: TipoEntrada
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_tipo_entrada:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

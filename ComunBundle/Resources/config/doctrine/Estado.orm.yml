@@ -1,0 +1,20 @@
+Suniland\ComunBundle\Entity\Estado:
+    type: entity
+    table: estado
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

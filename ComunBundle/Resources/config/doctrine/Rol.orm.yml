@@ -1,0 +1,21 @@
+Suniland\ComunBundle\Entity\Rol:
+    type: entity
+    table: rol
+    id:
+        id:
+            type: integer
+            nullable: false
+            generator: 
+                strategy: AUTO
+    fields:
+        nombre:
+            type: text
+            length: 100
+            nullable: true  
+        activo:
+            type: boolean
+            nullable: true  
+    oneToMany:
+         empleado:
+            targetEntity: Empleado
+            mappedBy: rol            

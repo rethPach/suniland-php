@@ -1,0 +1,35 @@
+Suniland\ComunBundle\Entity\Empleado:
+    type: entity
+    table: empleado
+    id:
+        id:
+            type: integer
+            nullable: false
+            generator: 
+                strategy: AUTO
+    fields:
+        nombre:
+            type: text
+            length: 100
+            nullable: true
+        usuario:
+            type: text
+            nullable: true
+            length: null
+            unique: true
+        password:
+            type: text
+            nullable: true
+            length: null 
+            unique: true   
+        activo:
+            type: boolean
+            nullable: true  
+    manyToOne:
+         rol:
+            targetEntity: Rol
+            inversedBy: Empleado
+            joinColumn:
+                name: rol_id
+                referencedColumnName: id
+ 

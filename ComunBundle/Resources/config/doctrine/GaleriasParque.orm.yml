@@ -1,0 +1,51 @@
+Suniland\ComunBundle\Entity\GaleriasParque:
+    type: entity
+    table: galerias_parque
+    indexes:
+        IDX_58852096F971F6A6:
+            columns:
+                - id_tipo_entrada
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titulo:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        imagen:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        activa:
+            type: boolean
+            nullable: true
+    manyToOne:
+        idTipoEntrada:
+            targetEntity: TipoEntrada
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_tipo_entrada:
+                    referencedColumnName: id
+            orphanRemoval: false
+
+    oneToOne:
+        sucursalParque:
+            targetEntity: SucursalParque
+            joinColumn:
+                name: sucursal_parque_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

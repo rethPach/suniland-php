@@ -1,0 +1,20 @@
+Suniland\ComunBundle\Entity\Stock:
+    type: entity
+    table: stocks
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        cantidadDisponible:
+            type: integer
+            nullable: true
+        cantidadVendida:
+            type: integer
+            nullable: true
+    lifecycleCallbacks: {  }

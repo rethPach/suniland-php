@@ -1,0 +1,55 @@
+Suniland\ComunBundle\Entity\InventarioTicket:
+    type: entity
+    table: inventario_ticket
+    indexes:
+        IDX_54ECD6D6F971F6A6:
+            columns:
+                - id_tipo_entrada
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        ticketInicial:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: ticket_inicial
+        ticketFinal:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: ticket_final
+        totalTicket:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: total_ticket
+        activo:
+            type: boolean
+            nullable: true
+        stock:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        idTipoEntrada:
+            targetEntity: TipoEntrada
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_tipo_entrada:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

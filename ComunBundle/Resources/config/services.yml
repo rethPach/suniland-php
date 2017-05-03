@@ -1,0 +1,48 @@
+services:
+    suniland_comun.buscador_pago_service:
+        class: Suniland\ComunBundle\Services\BuscadorPagoService
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    suniland_comun.galeria_directorie_service:
+        class: Suniland\ComunBundle\Services\GaleriaDirectorieService
+        arguments: ['%kernel.root_dir%']
+
+    suniland_comun.codigo_validacion_service:
+        class: Suniland\ComunBundle\Services\CodigoValidacionService
+        arguments: []
+
+    suniland_comun.checkout_service:
+        class: Suniland\ComunBundle\Services\CheckoutService
+        arguments: ["@doctrine.orm.entity_manager", %medio_pago%]
+
+    suniland_comun.boton_123_pago_service:
+        class: Suniland\ComunBundle\Services\Boton123PagoService
+        arguments: []
+
+    suniland_comun.validacion_pago_service:
+        class: Suniland\ComunBundle\Services\ValidacionPagoService
+        arguments: ["@suniland_comun.pago_repo","@suniland_comun.boton_123_pago_service","@suniland_comun.pay_status_repo", "@doctrine.orm.entity_manager"]
+
+    suniland_comun.callback_123_pago_service:
+        class: Suniland\ComunBundle\Services\Callback123PagoService
+        arguments: ["@doctrine.orm.entity_manager", "@suniland_comun.codigo_validacion_service"]
+
+    suniland_comun.delete_pago_service:
+            class: Suniland\ComunBundle\Services\DeletePagoService
+            arguments: ["@doctrine.orm.entity_manager", "@suniland_comun.pago_repo"]
+
+    suniland_comun.sucursal_repo:
+        class: Suniland\ComunBundle\Repositories\SucursalRepo
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    suniland_comun.boleto_inventario_repo:
+        class: Suniland\ComunBundle\Repositories\BoletoInventarioRepo
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    suniland_comun.pago_repo:
+          class: Suniland\ComunBundle\Repositories\PagoRepo
+          arguments: ["@doctrine.orm.entity_manager"]
+
+    suniland_comun.pay_status_repo:
+          class: Suniland\ComunBundle\Repositories\PayStatusRepo
+          arguments: ["@doctrine.orm.entity_manager"]

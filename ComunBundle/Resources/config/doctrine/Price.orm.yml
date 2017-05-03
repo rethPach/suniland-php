@@ -1,0 +1,16 @@
+Suniland\ComunBundle\Entity\Price:
+    type: entity
+    table: prices
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            generator:
+                strategy: AUTO
+    fields:
+        value:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<!-- class="fondo-mediano" -->
+	<div id="main" >
+		<br>
+		<form action="{{ path('_registrarCompra') }}" method="post" name="form" id="form" autocomplete= "off">
+			<input type="hidden" id="url_comprar" name="url_comprar" value="{{ path('_registrarCompra') }}">
+			<input type="hidden" id="tipo_entrada" name="tipo_entrada" value="0">
+			<input type="hidden" id="url_disponibilidad" name="url_disponibilidad" value="{{ path('_ajaxDisponibilidad') }}">
+			<input type="hidden" id="id_usuario" name="id_usuario" value="{{ usuario.id }}">
+			{{ include('SunilandMainBundle:Comprar:comprar.html.twig', { 'usuario': usuario, 'sucursal_parque': sucursal_parque }) }}
+
+		</form>
+	</div> 
+
+{% endblock %}

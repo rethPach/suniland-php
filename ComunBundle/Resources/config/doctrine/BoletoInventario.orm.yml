@@ -1,0 +1,47 @@
+Suniland\ComunBundle\Entity\BoletoInventario:
+    type: entity
+    table: boleto_inventarios
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: text
+            nullable: true
+            length: 250
+    oneToOne:
+        sucursal:
+            targetEntity: SucursalParque
+            inversedBy: boletoInventario
+            joinColumn:
+                name: sucursal_parque_id
+                referencedColumnName: id
+        stock:
+            targetEntity: Stock
+            joinColumn:
+                name: stock_id
+                referencedColumnName: id
+            cascade: [persist]
+        precio:
+            targetEntity: Price
+            joinColumn:
+                name: price_id
+                referencedColumnName: id
+            cascade: [persist]
+    manyToMany:
+        historicoPrecio:
+            targetEntity: Price
+            joinTable:
+                name: boleto_inventarios_prices
+            joinColumns:
+                boleto_inventario_id:
+                    referencedColumnName: id
+            inversedJoinColumns:
+                price_id:
+                    referencedColumnName: id
+    lifecycleCallbacks: {}

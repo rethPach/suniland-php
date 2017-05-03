@@ -1,0 +1,38 @@
+Suniland\ComunBundle\Entity\TipoEntrada:
+    type: entity
+    table: tipo_entrada
+    indexes:
+        IDX_DAB083D4BEA4A02A:
+            columns:
+                - id_sucursal_parque
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        activo:
+            type: boolean
+            nullable: true
+    manyToOne:
+        idSucursalParque:
+            targetEntity: SucursalParque
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_sucursal_parque:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

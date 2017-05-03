@@ -1,0 +1,66 @@
+
+	<table class="t-compra-usuario">
+        <caption>BIENVENIDOS A COMPRAR TICKETS</caption>
+		<tr>
+			<td class="campos left">Sucursal del Parque:</td>
+			<td class="datos left">
+				<select name="id_sucursal_parque" id="id_sucursal_parque" class="field1">
+					<option value="">Seleccione el parque</option>
+					{% for parque in sucursal_parque %}
+						<option value="{{ parque.id }}">{{ parque.nombre|title }}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td rowspan="2" >
+				<table id="contenido2" class="t-detalle-disp">
+					<tr>
+						<td class="etiqueta2">Disponibilidad</td>
+						<td class="datos2">Costo</td>
+					</tr>
+					<tr>
+						<td class="etiqueta2" id="disp"> </td>
+						<td class="datos2" id="tarifa"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="error-parque"></td>
+		</tr>
+		{% if html != '' %}
+			{{ html|raw }}
+		{% endif %}
+		<tr id="mensaje"></tr>
+	</table>
+	
+	<table id="contenido" class="t-detalle-compra">
+		<tr>
+			<td>Cantidad de Entradas</td>
+			<td>Total</td>
+		</tr>
+		<tr>	
+			<td >
+      			<div >
+        			<input type="hidden" id="tipo" name="tipo" value="">
+        			<input type="hidden" id="disponibilidad" name="disponibilidad" value="">
+        			<input type="hidden" id="precio_tarifa" name="precio_tarifa" value="">
+        			<input type="hidden" id="cantidad" name="cantidad" value="">
+        			<input type="hidden" id="total" name="total" value="">
+        			<table class="operaciones">
+						<tr >
+							<td class="center"><a id="restar" href="#"><img src="{{ asset('images/iconos/ico-resta.jpg') }}"  alt="Resta" width="26" height="26"></a></td>
+							<td  class="center" id="cantidad_entradas">
+							</td>
+							<td class="center" ><a id="sumar" href="#"><img src="{{ asset('images/iconos/ico-suma.jpg') }}" alt="Suma" width="26" height="26"></a></td>
+						</tr>
+					</table>
+                </div>
+			</td>
+			<td class="total" id="total_entradas" value=""></td>
+			<td>
+				<input type="button" name="buttonComprar" id="buttonComprar" value="Comprar" class="field2">
+				<input type="button" name="buttonCancelarComprar" id="buttonCancelarComprar" value="Cancelar" class="field2">
+			</td>
+		</tr>		
+	</table>
+<br>

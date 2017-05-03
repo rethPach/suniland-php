@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<div class="container-fluid" ng-app="suniland">
+		<checkout-fields></checkout-fields>
+	</div>
+
+    {% include ':default:suniland_app.html.twig' %}
+
+{% endblock %}

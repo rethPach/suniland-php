@@ -1,0 +1,25 @@
+Suniland\ComunBundle\Entity\Precios:
+    type: entity
+    table: precios
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        concepto:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        monto:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+    lifecycleCallbacks: {  }
